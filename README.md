@@ -6,7 +6,7 @@ This Project is made for weebs for downloading all types of mangas/manhua and ma
 ## Installation 
 1. Clone this repository by using ``` git clone https://github.com/Hatim315/Manhua-Manga-Manhwa_Downloader```<br>
 2. Run ```source bin/activate```
-2. Run ```pip install -r requirements.txt ```<br>
+2. Run ```pip install -r requirements.txt```<br>
 3. Enjoy!!<br>
 
 ## Usage
@@ -15,7 +15,7 @@ After that, there are two ways of using this script:
 
 ### 1. With Cmdline arguments
     You can use arguments to pass different parameters. For example,
- ```If you run ```python main.py -h ```. You will get all the available arguments. These are:
+ ```If you run ```python main.py -h```. You will get all the available arguments. These are:
    
    usage: main.py [-h] [-n N] [-l L] [-t T] [-N]
    
