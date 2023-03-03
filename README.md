@@ -18,7 +18,7 @@ After that, there are two ways of using this script:
    If you run ```python main.py -h ```. You will get all the available arguments. These are:
    
    usage: main.py [-h] [-n N] [-l L] [-t T] [-N]
-   ```
+   
    optional arguments:<br>
     -h, --help  show this help message and exit.
     -n N        Name of the manga/manhua/manhwa you want to download.
