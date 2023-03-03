@@ -20,13 +20,13 @@ After that, there are two ways of using this script:
     -h, --help  show this help message and exit.
     -n N        Name of the manga/manhua/manhwa you want to download.
     -l L        Number of latest chapters you want.
-    -t T        To set time interval between each pdf getting created acording to your internet speed.
+    -t T        To set time interval(in secs)(recommended 5secs) between each pdf getting created according to your internet speed.
     -N          For not deleting the Images even after making pdfs.```
     ```
    
     
     Complete Execution: ```python main.py -n <name of the manga/manhua/manhwa> -l <no. of latest chapters you want> -t <time taken after each pdf> -N (This flag can be used to keep the images.)```
-
+    
 ### 2. With Direct Input 
     
     You can just directly run ```python main.py ```,and it will ask all the above parameters as user input except for -N. 
