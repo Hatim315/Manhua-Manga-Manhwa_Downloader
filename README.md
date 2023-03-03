@@ -1,4 +1,4 @@
-# Manga-Manhua-Manga_Downloader
+# Manga-Manhua-Manhwa_Downloader
 
 ## Introduction
 This Project is made for weebs for downloading all types of mangas/manhua and manhwas without opening any browser and with cmdline. This will be able to download most of the mangas, but some mangas like Dragon ball and one piece are unavailable.
