@@ -16,16 +16,16 @@ After that, there are two ways of using this script:
 ### 1. With Cmdline arguments
    You can use arguments to pass different parameters. For example,
    If you run ```python main.py -h ```. You will get all the available arguments. These are:
-   ```
-   usage: main.py [-h] [-n N] [-l L] [-t T] [-N]
+   
+   usage: main.py [-h] [-n N] [-l L] [-t T] [-N]<br>
 
-   optional arguments:
-    -h, --help  show this help message and exit
-    -n N        Name of the manga/manhua/manhwa you want to download.
-    -l L        Number of latest chapters you want.
-    -t T        To set time interval between each pdf getting created acording to your internet speed.
-    -N          For not deleting the Images even after making pdfs 
-    ```
+   optional arguments:<br>
+    -h, --help  show this help message and exit<br>
+    -n N        Name of the manga/manhua/manhwa you want to download.<br>
+    -l L        Number of latest chapters you want.<br>
+    -t T        To set time interval between each pdf getting created acording to your internet speed.<br>
+    -N          For not deleting the Images even after making pdfs <br>
+    
     
     Complete Execution: ```python main.py -n <name of the manga/manhua/manhwa> -l <no. of latest chapters you want> -t <time taken after each pdf> -N (This flag can be used to keep the images.)```
 
