@@ -2,7 +2,11 @@
 
 ## Introduction
 This Project is made for weebs for downloading all types of mangas/manhua and manhwas without opening any browser and with cmdline. This will be able to download most of the mangas, but some mangas like Dragon ball and one piece are unavailable.
-
+## Availability
+   1. Manhuas- Almost all the manhuas are available.<br>
+   2. Manhwas- All popular ones(Solo Levelling) and most of others are available<br>
+   3. Mangas-  Available except for the ones which easily get copyrights like One piece, Dragon Ball and Attack on titan"<br>
+   I know that there are a lot of shortcomings in this script but in future I will add as many features and as many websites as possible, so that there will never be any unavailable manga on this project.
 ## Installation 
 1. Clone this repository by using ``` git clone https://github.com/Hatim315/Manhua-Manga-Manhwa_Downloader```<br>
 2. Run ```source bin/activate```
@@ -12,7 +16,12 @@ This Project is made for weebs for downloading all types of mangas/manhua and ma
 ## Usage
 First of all, activate the virtual environment with ```source bin/activate```.
 After that, there are two ways of using this script:
-
+#### Important Message
+    This script is sensitive to name such as,<br>
+    If you search One Punch Man, then you will get an error.<br>
+    Because the real name is One-Punch Man.<br>
+   ``` One Punch Man --> Incorrect
+       One-Punch Man --> Correct```
 ### 1. With Cmdline arguments
     You can use arguments to pass different parameters. For example,
     If you run ```python main.py -h```. You will get all the available arguments. These are:
