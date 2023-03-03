@@ -15,7 +15,7 @@ After that, there are two ways of using this script:
 
 ### 1. With Cmdline arguments
     You can use arguments to pass different parameters. For example,
-   If you run ```python main.py -h ```. You will get all the available arguments. These are:
+ ```If you run ```python main.py -h ```. You will get all the available arguments. These are:
    
    usage: main.py [-h] [-n N] [-l L] [-t T] [-N]
    
