@@ -15,11 +15,8 @@ After that, there are two ways of using this script:
 
 ### 1. With Cmdline arguments
     You can use arguments to pass different parameters. For example,
- ```If you run ```python main.py -h```. You will get all the available arguments. These are:
-   
-   usage: main.py [-h] [-n N] [-l L] [-t T] [-N]
-   
-   optional arguments:
+    If you run ```python main.py -h```. You will get all the available arguments. These are:
+    ```
     -h, --help  show this help message and exit.
     -n N        Name of the manga/manhua/manhwa you want to download.
     -l L        Number of latest chapters you want.
