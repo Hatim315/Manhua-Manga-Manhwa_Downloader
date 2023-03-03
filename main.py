@@ -5,11 +5,11 @@ from bs4 import BeautifulSoup as bs
 from utils.ImgToPdf import PdfMaker
 import time
 import argparse
-parser=argparse.ArgumentParser()
-parser.add_argument("-n",help="Name of the manga/manhua/manhwa you want to download.")
-parser.add_argument("-l",help="Number of latest chapters you want.")
-parser.add_argument("-t",help="To set time interval between each pdf getting created acording to your internet speed.",type=int)
-parser.add_argument("-N",help="For not deleting the Images even after making pdfs",action="store_true")
+parser=argparse.ArgumentParser(description="Flags to use with this script.")
+parser.add_argument("-n","--name",metavar='',help="Name of the manga/manhua/manhwa you want to download.")
+parser.add_argument("-l","--latest",metavar='',help="Number of latest chapters you want.")
+parser.add_argument("-t","--time",metavar='',help="To set time interval between each pdf getting created acording to your internet speed.",type=int)
+parser.add_argument("-N","--retainImages",help="For keeping the Images even after making pdfs",action="store_true")
 args=parser.parse_args()
 def Mreader_search_manga(Name):
     """This function will find your manga,manhua or manhwa in Mreader's Website"""
