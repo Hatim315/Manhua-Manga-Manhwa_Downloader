@@ -14,16 +14,16 @@ I know that there are a lot of shortcomings in this script but in future I will 
 2. Run ```source bin/activate```
 2. Run ```pip install -r requirements.txt```<br>
 3. Enjoy!!<br>
-
-## Usage
-First of all, activate the virtual environment with ```source bin/activate```.
-After that, there are two ways of using this script:
 #### Important Message
     This script is sensitive to name such as,<br>
     If you search One Punch Man, then you will get an error.<br>
     Because the real name is One-Punch Man.<br>
-   ``` One Punch Man --> Incorrect
-       One-Punch Man --> Correct```
+       One Punch Man --> Incorrect<br>
+       One-Punch Man --> Correct<br>
+## Usage
+First of all, activate the virtual environment with ```source bin/activate```.
+After that, there are two ways of using this script:
+
 ### 1. With Cmdline arguments
     You can use arguments to pass different parameters. For example,
     If you run ```python main.py -h```. You will get all the available arguments. These are:
