@@ -15,11 +15,11 @@ I know that there are a lot of shortcomings in this script but in future I will 
 2. Run ```pip install -r requirements.txt```<br>
 3. Enjoy!!<br>
 #### Important Message
-    This script is sensitive to name such as,<br>
-    If you search One Punch Man, then you will get an error.<br>
-    Because the real name is One-Punch Man.<br>
-       One Punch Man --> Incorrect<br>
-       One-Punch Man --> Correct<br>
+    This script is sensitive to name such as,
+    If you search One Punch Man, then you will get an error.
+    Because the real name is One-Punch Man.
+       One Punch Man --> Incorrect
+       One-Punch Man --> Correct
 ## Usage
 First of all, activate the virtual environment with ```source bin/activate```.
 After that, there are two ways of using this script:
