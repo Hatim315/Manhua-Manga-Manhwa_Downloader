@@ -7,7 +7,7 @@ This Project is made for weebs for downloading all types of mangas/manhua and ma
    2. Manhwas- All popular ones(Solo Levelling) and most of others are available.<br>
    3. Mangas-  Available except for the ones which easily get copyrights like One piece, Dragon Ball and Attack on titan".<br>
 
-I know that there are a lot of shortcomings in this script but in future I will add as many features and as many websites as possible, so that there will never be any unavailable manga,manhua and manhwa in this project.
+I know that there are a lot of shortcomings in this script but in future I will add as many features and as many websites as possible, so that there will never be any unavailable manga,manhua or manhwa in this project.
 
 ## Installation 
 1. Clone this repository by using ``` git clone https://github.com/Hatim315/Manhua-Manga-Manhwa_Downloader```<br>
