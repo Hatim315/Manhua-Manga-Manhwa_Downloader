@@ -20,6 +20,7 @@ I know that there are a lot of shortcomings in this script but in future I will 
     Because the real name is One-Punch Man.
        One Punch Man --> Incorrect
        One-Punch Man --> Correct
+    You can use google to find the correct name.
 ## Usage
 First of all, activate the virtual environment with ```source bin/activate```.
 After that, there are two ways of using this script:
