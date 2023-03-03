@@ -44,7 +44,8 @@ def Get_images(Dir,Url):
     if Remained!=0:
         for j in range(i,Length):
             Image_maker(Dir, j,Manga_Urls[j])
-    
+
+
 def Image_maker(Dir,x,i):
     """This function will write bytes on Image file"""
     Name=f"{Dir}/Image{x}"
@@ -53,3 +54,4 @@ def Image_maker(Dir,x,i):
         with open(Name,"wb") as f:
             Get_images.raw.decode_content=True
             shutil.copyfileobj(Get_images.raw, f)
+

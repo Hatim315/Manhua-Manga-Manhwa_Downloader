@@ -72,7 +72,7 @@ def Mreader_main(Name,t=5,Chapwant=None,Delete=None):
                cleaner(f"{Path}/{Chapter}")
             
          except:
-            print("Partially Failed\nYour Internet speed is slow:-")
+            print("Partially Failed\nYour Internet speed is slow try increasing the time taken after each pdf as images has been downloaded but pdfs is not made:-")
             return 
       print("Done!!!")
 
