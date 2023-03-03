@@ -38,7 +38,7 @@ After that, there are two ways of using this script:
     
     ```
 ## Errors and Contribution
-   If you face any kind of error, you can raise the issue. If you have any more ideas then feel free tto contribute to this project.
+   If you face any kind of error, you can raise the issue. If you have any more ideas then feel free to contribute to this project.
    
 
 
