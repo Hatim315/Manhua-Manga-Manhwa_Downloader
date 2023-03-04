@@ -3,7 +3,6 @@ import shutil,os,asyncio
 from utils.ImagesGetter import get_imgurls,main_Get_Images
 from bs4 import BeautifulSoup as bs
 from utils.ImgToPdf import PdfMaker
-import time
 import argparse
 parser=argparse.ArgumentParser(description="Flags to use with this script.")
 parser.add_argument("-n",metavar='',help="Name of the manga/manhua/manhwa you want to download.")
