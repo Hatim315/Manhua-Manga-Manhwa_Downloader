@@ -1,8 +1,7 @@
-import requests,shutil
-import os
+import requests
+import os,asyncio,aiohttp,aiofiles
 from bs4 import BeautifulSoup as bs
-from threading import Thread
-from multiprocessing import cpu_count
+
 def get_imgurls(Url):
     """This function will get all the urls of images available on a Chapter Page"""
     Content=requests.get(Url).text
@@ -15,43 +14,38 @@ def get_imgurls(Url):
           UrlList.append(NewUrl)
     return UrlList
 
-def Get_images(Dir,Url):
-    """This function will download each and every image available on the Chapter page"""
-    Manga_Urls=get_imgurls(Url)
+async def get_image(s,url,x,Dir):
+    """For Downloading every image"""
+    async with s.get(url) as r:
+        if r.status==200:
+            f= await aiofiles.open(f'{Dir}/Image{x}',mode="wb")
+            await f.write(await r.read())
+            await f.close()
+
+async def get_all(session,urls,Dir):
+    """for using all urls at once"""
+    tasks=[]
+    x=0 #Here x is used for numbering all the images.
+    for i in urls:
+        task=asyncio.create_task(get_image(session,i,x,Dir))
+        tasks.append(task)
+        x+=1
+    results=await asyncio.gather(*tasks)
+    return results
+
+
+async def main_Get_Images(Dir,url):
+    """for making directory and for starting aiohttp session. This Function is a root function"""
     if not os.path.exists(Dir):
        os.mkdir(Dir)
-    i=0
-    Cpu=cpu_count()//2 #just to use half of threads
-    Length=len(Manga_Urls)
-    Remained=Length%Cpu  
-    Diff=Length-Remained #Diff is used to make it easy for us to use threads 
-    #I am new to threading but anyways I have used it to increase our downloading speed of images 
-    while i!=Diff:
-        thread1=Thread(target=Image_maker,args=(Dir,i,Manga_Urls[i]))
-        thread2=Thread(target=Image_maker,args=(Dir,i+1,Manga_Urls[i+1]))
-        if Cpu<4: 
-            thread1.start()
-            thread2.start()
-            i+=2
-            continue
-        thread3=Thread(target=Image_maker,args=(Dir,i+2,Manga_Urls[i+2]))
-        thread4=Thread(target=Image_maker,args=(Dir,i+3,Manga_Urls[i+3]))
-        thread1.start()
-        thread2.start()
-        thread3.start()
-        thread4.start()
-        i+=4
-    if Remained!=0:
-        for j in range(i,Length):
-            Image_maker(Dir, j,Manga_Urls[j])
+    urls=get_imgurls(url)
+    async with aiohttp.ClientSession() as session:
+        data= await get_all(session,urls,Dir)
+        return data
 
 
-def Image_maker(Dir,x,i):
-    """This function will write bytes on Image file"""
-    Name=f"{Dir}/Image{x}"
-    Get_images=requests.get(i,stream=True)
-    if Get_images.status_code==200:
-        with open(Name,"wb") as f:
-            Get_images.raw.decode_content=True
-            shutil.copyfileobj(Get_images.raw, f)
 
+
+
+
+    

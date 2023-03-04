@@ -1,15 +1,14 @@
 import requests,re
-import shutil,os
-from utils.ImagesGetter import get_imgurls,Get_images
+import shutil,os,asyncio
+from utils.ImagesGetter import get_imgurls,main_Get_Images
 from bs4 import BeautifulSoup as bs
 from utils.ImgToPdf import PdfMaker
 import time
 import argparse
 parser=argparse.ArgumentParser(description="Flags to use with this script.")
-parser.add_argument("-n","--name",metavar='',help="Name of the manga/manhua/manhwa you want to download.")
-parser.add_argument("-l","--latest",metavar='',help="Number of latest chapters you want.")
-parser.add_argument("-t","--time",metavar='',help="To set time interval between each pdf getting created acording to your internet speed.",type=int)
-parser.add_argument("-N","--retainImages",help="For keeping the Images even after making pdfs",action="store_true")
+parser.add_argument("-n",metavar='',help="Name of the manga/manhua/manhwa you want to download.")
+parser.add_argument("-l",metavar='',help="Number of latest chapters you want.")
+parser.add_argument("-N",help="For keeping the Images even after making pdfs",action="store_true")
 args=parser.parse_args()
 def Mreader_search_manga(Name):
     """This function will find your manga,manhua or manhwa in Mreader's Website"""
@@ -26,7 +25,7 @@ def cleaner(FilePath):
         os.remove(f"{FilePath}/{file}")
     os.rmdir(FilePath)
 
-def Mreader_main(Name,t=5,Chapwant=None,Delete=None):
+def Mreader_main(Name,Chapwant=None,Delete=None):
       """This function will make pdf of your inputted manga, manhua or manhwa """
       IntFinder=re.compile("(\-\d+){1,4}")
       Searched=Mreader_search_manga(Name)
@@ -61,26 +60,18 @@ def Mreader_main(Name,t=5,Chapwant=None,Delete=None):
             Chapter=f"Chapter{count}"
             print(f"Downloading pages of {Chapter} ...")
         
-            Get_images(Chapter,(Common+Chapters[i]['href']))
-            ChapCount+=1
-
-      for Chapter in os.listdir():
-         try:
-            time.sleep(t)
+            asyncio.run(main_Get_Images(Chapter,(Common+Chapters[i]['href'])))
             PdfMaker(f"{Path}/{Chapter}", Path, Chapter)
             if Delete==None:
                cleaner(f"{Path}/{Chapter}")
-            
-         except:
-            print("Partially Failed\nYour Internet speed is slow try increasing the time taken after each pdf as images has been downloaded but pdfs is not made:-")
-            return 
+            ChapCount+=1
+        
       print("Done!!!")
 
 if __name__=="__main__":
    Delete=None
-   if args.n and args.t:
+   if args.n:
       Name=args.n
-      t=args.t
       if args.l:
         Latest=int(args.l)
       else:
@@ -96,7 +87,6 @@ if __name__=="__main__":
             Latest=None
         else:
             Latest=latest
-        t=int(input("Give the time(in seconds) to wait while making each pdf according to your internet speed 'recommended 5 for medium speed internet':-"))
-   
-   Mreader_main(Name,Chapwant=Latest,t=t,Delete=Delete)
+    
+   Mreader_main(Name,Chapwant=Latest,Delete=Delete)
    
