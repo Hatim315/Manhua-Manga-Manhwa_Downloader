@@ -30,8 +30,8 @@ async def get_all(session,urls,Dir):
         task=asyncio.create_task(get_image(session,i,x,Dir))
         tasks.append(task)
         x+=1
-    results=await asyncio.gather(*tasks)
-    return results
+    await asyncio.gather(*tasks)
+    
 
 
 async def main_Get_Images(Dir,url):
@@ -40,8 +40,8 @@ async def main_Get_Images(Dir,url):
        os.mkdir(Dir)
     urls=get_imgurls(url)
     async with aiohttp.ClientSession() as session:
-        data= await get_all(session,urls,Dir)
-        return data
+        await get_all(session,urls,Dir)
+        
 
 
 
