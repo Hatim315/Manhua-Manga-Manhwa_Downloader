@@ -30,8 +30,8 @@ After that, there are two ways of using this script:
     If you run ```python main.py -h```. You will get all the available arguments. These are:
     ```
     -h, --help  show this help message and exit.
-    -n N        Name of the manga/manhua/manhwa you want to download.
-    -l L        Number of latest chapters you want.
+    -n          Name of the manga/manhua/manhwa you want to download.
+    -l          Number of latest chapters you want.
     -N          For not deleting the Images even after making pdfs.```
     ```
    
