@@ -36,7 +36,7 @@ After that, there are two ways of using this script:
     ```
    
     
-    Complete Execution: ```python main.py -n <name of the manga/manhua/manhwa> -l <no. of latest chapters you want> -t <time taken after each pdf> -N (This flag can be used to keep the images.)```
+    Complete Execution: ```python main.py -n <name of the manga/manhua/manhwa> -l <no. of latest chapters you want> -N (This flag can be used to keep the images.)```
     
 ### 2. With Direct User Input 
     
