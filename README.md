@@ -10,7 +10,7 @@ This Project is made for weebs for downloading all types of mangas/manhua and ma
 I know that there are a lot of shortcomings in this script but in future I will add as many features and as many websites as possible, so that there will never be any unavailable manga,manhua or manhwa in this project.
 
 ## Installation 
-1. Clone this repository by using ``` git clone https://github.com/Hatim315/Manhua-Manga-Manhwa_Downloader```<br>
+1. Clone this repository by using ``` git clone https://github.com/Hatim315/Manhua-Manga-Manhwa_Downloader```
 2. Run ```source bin/activate```
 2. Run ```pip install -r requirements.txt```<br>
 3. Enjoy!!<br>
