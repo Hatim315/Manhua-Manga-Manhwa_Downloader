@@ -28,13 +28,12 @@ After that, there are two ways of using this script:
 ### 1. With Cmdline arguments
     You can use arguments to pass different parameters. For example,
     If you run ```python main.py -h```. You will get all the available arguments. These are:
-    ```
-    -h, --help  show this help message and exit.
-    -n          Name of the manga/manhua/manhwa you want to download.
-    -l          Number of latest chapters you want.
-    -N          For not deleting the Images even after making pdfs.```
-    ```
-   
+    
+     -h, --help  show this help message and exit
+     -n          Name of the manga/manhua/manhwa you want to download.
+     -l          Number of latest chapters you want.
+     -d          For specifying the path where pdf's directory wi
+
     
     Complete Execution: ```python main.py -n <name of the manga/manhua/manhwa> -l <no. of latest chapters you want> -N (This flag can be used to keep the images.)```
     
