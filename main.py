@@ -83,7 +83,9 @@ if __name__=="__main__":
       else:
         Latest=None
       if args.d:
-        mvTo=args.d
+        mvto=args.d
+      else:
+        mvto=None
       if args.N:
         Delete=args.N
       
@@ -96,9 +98,8 @@ if __name__=="__main__":
             Latest=latest
         mvto=input("Specify path where pdf directory will be stored or simply press enter to store it in Project Directory --> ")
         if mvto=="":
-            mvTo=None
-        else:
-            mvTO=mvto
+            mvto=None
+            
     
    Mreader_main(Name,Chapwant=Latest,Delete=Delete,mvTo=mvto)
    
