@@ -7,8 +7,10 @@ import argparse
 parser=argparse.ArgumentParser(description="Flags to use with this script.")
 parser.add_argument("-n",metavar='',help="Name of the manga/manhua/manhwa you want to download.")
 parser.add_argument("-l",metavar='',help="Number of latest chapters you want.")
+parser.add_argument("-d",metavar='',help="For specifying the path where pdf's directory will be stored.")
 parser.add_argument("-N",help="For keeping the Images even after making pdfs",action="store_true")
 args=parser.parse_args()
+
 def Mreader_search_manga(Name):
     """This function will find your manga,manhua or manhwa in Mreader's Website"""
     name=Name.replace(' ','+')   
@@ -24,7 +26,7 @@ def cleaner(FilePath):
         os.remove(f"{FilePath}/{file}")
     os.rmdir(FilePath)
 
-def Mreader_main(Name,Chapwant=None,Delete=None):
+def Mreader_main(Name,Chapwant=None,Delete=None,mvTo=None):
       """This function will make pdf of your inputted manga, manhua or manhwa """
       IntFinder=re.compile("(\-\d+){1,4}")
       Searched=Mreader_search_manga(Name)
@@ -38,6 +40,12 @@ def Mreader_main(Name,Chapwant=None,Delete=None):
           return
       base=bs(Get_Chapters.text,"html.parser")
       Chapters=base.find_all("a",href=True)
+      if mvTo!=None:
+        if os.path.exists(mvTo):
+            os.chdir(mvTo)
+        else:
+            print("Specified Path doesn't exist.")
+            return
       if not  os.path.exists(name):
          os.mkdir(name)      
       os.chdir(name)
@@ -64,7 +72,6 @@ def Mreader_main(Name,Chapwant=None,Delete=None):
             if Delete==None:
                cleaner(f"{Path}/{Chapter}")
             ChapCount+=1
-        
       print("Done!!!")
 
 if __name__=="__main__":
@@ -75,9 +82,10 @@ if __name__=="__main__":
         Latest=int(args.l)
       else:
         Latest=None
+      if args.d:
+        mvTo=args.d
       if args.N:
         Delete=args.N
-         
       
    else:
         Name=input("Give the name of the manga/manhua/manhwa you want to download--> ").lower()
@@ -86,6 +94,11 @@ if __name__=="__main__":
             Latest=None
         else:
             Latest=latest
+        mvto=input("Specify path where pdf directory will be stored or simply press enter to store it in Project Directory --> ")
+        if mvto=="":
+            mvTo=None
+        else:
+            mvTO=mvto
     
-   Mreader_main(Name,Chapwant=Latest,Delete=Delete)
+   Mreader_main(Name,Chapwant=Latest,Delete=Delete,mvTo=mvto)
    
