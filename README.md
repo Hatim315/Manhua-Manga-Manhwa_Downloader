@@ -32,7 +32,8 @@ After that, there are two ways of using this script:
      -h, --help  show this help message and exit
      -n          Name of the manga/manhua/manhwa you want to download.
      -l          Number of latest chapters you want.
-     -d          For specifying the path where pdf's directory wi
+     -d          For specifying the path where pdf's directory will be stored.
+     -N          For keeping the Images even after making pdfs
 
     
     Complete Execution: ```python main.py -n <name of the manga/manhua/manhwa> -l <no. of latest chapters you want> -N (This flag can be used to keep the images.)```
