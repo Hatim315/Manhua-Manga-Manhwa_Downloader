@@ -32,17 +32,20 @@ After that, there are two ways of using this script:
      -h, --help  show this help message and exit
      -n          Name of the manga/manhua/manhwa you want to download.
      -l          Number of latest chapters you want.
+     --first     For Downloading first n chapters.Usually used with l
      -d          For specifying the path where pdf's directory will be stored.
      -N          For keeping the Images even after making pdfs
 
     
-    Complete Execution: ```python main.py -n <name of the manga/manhua/manhwa> -l <no. of latest chapters you want> -N (This flag can be used to keep the images.)```
+    Complete Execution: ```python main.py -n <name of the manga/manhua/manhwa> -l <no. of latest chapters you want> --first <for downloading first l chapters> -d <directory where files should be stored> -N (This flag can be used to keep the images.)```
     
 ### 2. With Direct User Input 
     
     You can just directly run ```python main.py ```,and it will ask all the above parameters(flags) as user input except for -N. 
     1. Give the name of the manga/manhua/manhwa you want to download--> <name of the manga/manhua/manhwa>
     2. How many latest Chapters do you want? If you want to download all chapters then write 0 --> <no. of latest chapters you want>
+    3. Specify path where pdf directory will be stored or simply press enter to store it in Project Directory --> <path to the folder>
+
 ## Errors and Contribution
    If you face any kind of error, you can raise the issue. If you have any more ideas then feel free to contribute to this project.
    
