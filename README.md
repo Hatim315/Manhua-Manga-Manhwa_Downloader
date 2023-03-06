@@ -43,7 +43,7 @@ After that, there are two ways of using this script:
     
     You can just directly run ```python main.py ```,and it will ask all the above parameters(flags) as user input except for -N. 
     1. Give the name of the manga/manhua/manhwa you want to download--> <name of the manga/manhua/manhwa>
-    2. How many latest Chapters do you want? If you want to download all chapters then write 0 --> <no. of latest chapters you want>
+    2. How many latest Chapters do you want? If you want to download all chapters then write 0 --> (first keyword can be used preceding the no.of chapters) <no. of latest chapters you want>
     3. Specify path where pdf directory will be stored or simply press enter to store it in Project Directory --> <path to the folder>
 
 ## Errors and Contribution
