@@ -1,4 +1,4 @@
-import requests,re
+import requests,re,sys
 import shutil,os,asyncio
 from utils.ImagesGetter import get_imgurls,main_Get_Images
 from bs4 import BeautifulSoup as bs
@@ -28,7 +28,7 @@ def cleaner(FilePath):
         os.remove(f"{FilePath}/{file}")
     os.rmdir(FilePath)
 
-def Mreader_main(Name,Chapwant=None,Delete=None,mvTo=None,First=False):
+def Mreader_main(Name,Chapwant=None,Delete=None,First=False):
       """This function will make pdf of your inputted manga, manhua or manhwa """
       IntFinder=re.compile("(\-\d+){1,4}")
       print("Searching your query...")
@@ -43,12 +43,6 @@ def Mreader_main(Name,Chapwant=None,Delete=None,mvTo=None,First=False):
           return
       base=bs(Get_Chapters.text,"html.parser")
       Chapters=base.find_all("a",href=True)
-      if mvTo!=None:
-        if os.path.exists(mvTo):
-            os.chdir(mvTo)
-        else:
-            print("Specified Path doesn't exist.")
-            return
       if not  os.path.exists(name):
          os.mkdir(name)      
       os.chdir(name)
@@ -112,7 +106,14 @@ if __name__=="__main__":
         mvto=input("Specify path where pdf directory will be stored or simply press enter to store it in Project Directory --> ")
         if mvto=="":
             mvto=None
-            
+   
+   if mvto!=None:
+        if os.path.exists(mvto):
+            os.chdir(mvto)
+        else:
+            print("Specified Path doesn't exist.")
+            sys.exit()
+      
     
-   Mreader_main(Name,Chapwant=Latest,Delete=Delete,mvTo=mvto,First=First)
+   Mreader_main(Name,Chapwant=Latest,Delete=Delete,First=First)
    
