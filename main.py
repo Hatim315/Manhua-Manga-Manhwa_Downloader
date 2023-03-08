@@ -53,7 +53,7 @@ def Mreader_main(Name,Chapwant=None,Delete=None,First=False):
       else:RANGE=range(len(Chapters)-1,6,-1)
       for i in RANGE:
         links=Chapters[i]["href"]
-        if Words[0] in links:
+        if "chapter" in links.lower():
             Into=IntFinder.search(links)
             if Into:
                count=Into.group(0)
