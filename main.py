@@ -1,8 +1,8 @@
 import requests,re,sys
 import shutil,os,asyncio
-from utils.ImagesGetter import get_imgurls,main_Get_Images
+from utils.ImagesGetter import get_imgurls,main_get_images
 from bs4 import BeautifulSoup as bs
-from utils.ImgToPdf import PdfMaker
+from utils.ImgToPdf import pdf_maker
 import argparse
 
 parser=argparse.ArgumentParser(description="Flags to use with this script.")
@@ -13,7 +13,7 @@ parser.add_argument("-d",metavar='',help="For specifying the path where pdf's di
 parser.add_argument("-N",help="For keeping the Images even after making pdfs",action="store_true")
 args=parser.parse_args()
 
-def Mreader_search_manga(Name):
+def mreader_search_manga(Name):
     """This function will find your manga,manhua or manhwa in Mreader's Website"""
     name=Name.replace(' ','+')   
     search_url="https://www.mreader.co/search/?search={}".format(name)
@@ -22,17 +22,18 @@ def Mreader_search_manga(Name):
     results=soup.find_all("a",href=True)
     return results[39]["href"]
 
+
 def cleaner(FilePath):
-    """This Function will clean the mess(images,directories)"""
+    """ This Function will clean the mess(images,directories)"""
     for file in os.listdir(FilePath):
         os.remove(f"{FilePath}/{file}")
     os.rmdir(FilePath)
 
-def Mreader_main(Name,Chapwant=None,Delete=None,First=False):
-      """This function will make pdf of your inputted manga, manhua or manhwa """
+def mreader_main(Name,Chapwant=None,Delete=None,First=False):
+      """ This function will make pdf of your inputted manga, manhua or manhwa """
       IntFinder=re.compile("(\-\d+){1,4}")
       print("Searching your query...")
-      Searched=Mreader_search_manga(Name)
+      Searched=mreader_search_manga(Name)
       Common="https://www.mreader.co"
       name=Name.replace(' ','-')
       Main_Url=f"{Common}/{Searched}/all-chapters"
@@ -49,7 +50,7 @@ def Mreader_main(Name,Chapwant=None,Delete=None,First=False):
       Path=os.getcwd()
       print("Starting Downloader...")
       ChapCount=0
-      if First==False:RANGE=range(6,len(Chapters)-1)#just removed some links that i do not need by specifying the range
+      if First==False:RANGE=range(6,len(Chapters)-1) # just removed some links that i do not need by specifying the range
       else:RANGE=range(len(Chapters)-1,6,-1)
       for i in RANGE:
         links=Chapters[i]["href"]
@@ -58,7 +59,6 @@ def Mreader_main(Name,Chapwant=None,Delete=None,First=False):
             if Into:
                count=Into.group(0)
             else:
-               
                count='-'+links.split("-")[-3]
             if ChapCount==Chapwant:
                 break
@@ -66,8 +66,8 @@ def Mreader_main(Name,Chapwant=None,Delete=None,First=False):
             Chapter=f"Chapter{count}"
             print(f"Downloading pages of {Chapter} ...")
         
-            asyncio.run(main_Get_Images(Chapter,(Common+Chapters[i]['href'])))
-            PdfMaker(f"{Path}/{Chapter}", Path, Chapter)
+            asyncio.run(main_get_images(Chapter,(Common+Chapters[i]['href'])))
+            pdf_maker(f"{Path}/{Chapter}", Path, Chapter)
             if Delete==None:
                cleaner(f"{Path}/{Chapter}")
             ChapCount+=1
@@ -115,5 +115,5 @@ if __name__=="__main__":
             sys.exit()
       
     
-   Mreader_main(Name,Chapwant=Latest,Delete=Delete,First=First)
+   mreader_main(Name,Chapwant=Latest,Delete=Delete,First=First)
    

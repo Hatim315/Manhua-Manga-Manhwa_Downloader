@@ -34,7 +34,7 @@ async def get_all(session,urls,Dir):
     
 
 
-async def main_Get_Images(Dir,url):
+async def main_get_images(Dir,url):
     """for making directory and for starting aiohttp session. This Function is a root function"""
     if not os.path.exists(Dir):
        os.mkdir(Dir)

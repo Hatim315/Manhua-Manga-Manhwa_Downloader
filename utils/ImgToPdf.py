@@ -1,6 +1,6 @@
 from PIL import Image
 import os
-def PdfMaker(Imagepath,PdfPath,Name):
+def pdf_maker(Imagepath,PdfPath,Name):
     """This function will make Pdf's of images"""
     print(f"Creating Pdf of {Name} ...")
     images=[Image.open(Imagepath+'/'+f) for f in sorted(os.listdir(Imagepath),key=lambda x:int(x.replace("Image","")))]
